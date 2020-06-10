@@ -1,0 +1,64 @@
+﻿<Window x:Class="MyMediaPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MyMediaPlayer"
+        mc:Ignorable="d"
+        ResizeMode="CanResizeWithGrip"
+        Title="MainWindow"  Height ="120" Width="1100"
+        Closing="MainWindow_Closing"
+        Background="#FF494949">
+    <Grid>
+        <!--<Grid x:Name="grid2" VerticalAlignment="Top" HorizontalAlignment="left" ShowGridLines="True" Width="950" Height="50" >
+            <Slider x:Name="slider2" Foreground="#545AA7" HorizontalAlignment="Center" Height="26" Margin="0,0,0,0" VerticalAlignment="Center" Visibility="Hidden" Width="670" Value="100" Minimum="1" Maximum="100" PreviewMouseLeftButtonUp="slider_PreviewMouseLeftButtonUp2" />
+        </Grid>-->
+        <Grid x:Name="grid4" Width="850">
+            <Image x:Name="image" HorizontalAlignment="Left"
+                    Margin="0,70,0,70" VerticalAlignment="Top" Width="0" Visibility="Visible" />
+            <Image x:Name="Dimage" HorizontalAlignment="Left"
+                        Margin="0,70,0,70" VerticalAlignment="Top" Width="0" Visibility="Visible"/>
+            <Grid x:Name="grid5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Name="col1"/>
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Name="col2"/>
+                </Grid.ColumnDefinitions>
+                <GridSplitter x:Name="splitter" Background="Black" Grid.Column="1" Width="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="20" Visibility="Hidden" PreviewMouseLeftButtonUp="splitter_PreviewMouseLeftButtonUp"/>
+            </Grid>
+        </Grid>
+        
+       
+        <Grid x:Name="grid3" VerticalAlignment="Bottom"  HorizontalAlignment="Left" ShowGridLines="True" Width="950" Height="50" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Play_Button" Margin="55,-20,0,0"  HorizontalAlignment="Left"  Style="{StaticResource MaterialDesignIconButton}" ToolTip="MaterialDesignIconButton" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Click="Play_Button_Click">
+                <materialDesign:PackIcon Kind="Play"/>
+            </Button>
+            <Grid x:Name="grid" VerticalAlignment="Bottom" HorizontalAlignment="left" ShowGridLines="True" Width="950" Height="50" Margin="0,0,0,0">
+                <Label x:Name="start_Time" Content="00:00:00" FontSize="8" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Width="43" Height="25" Margin="3,-10,0,0"/>
+                <Slider x:Name="slider"  Height="26" Margin="85,2,70,15" VerticalAlignment="Center" Width="707" PreviewMouseLeftButtonUp="slider_PreviewMouseLeftButtonUp" PreviewMouseLeftButtonDown="slider_PreviewMouseLeftButtonDown"/>
+                <Label x:Name="finish_Time" Content="00:00:00" FontSize="8" Foreground="White" HorizontalAlignment="Right" Margin="0,-10,60,10" VerticalAlignment="Center" Width="43" Height="25" Grid.Column="1"/>
+            </Grid>
+            <Button x:Name="btnAudio" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                            ToolTip="MaterialDesignFloatingActionMiniLightButton"  Margin="902,-20,0,0" Click="btnAudio_Click"
+                            Background="#FF484849" BorderBrush="Transparent" Foreground="#FFE4E2E6">
+                <materialDesign:PackIcon Kind="Audio"  Height="24" Width="24" Foreground="#FF673AB7" >
+                </materialDesign:PackIcon>
+            </Button>
+            <Slider x:Name="AudioVolumn" Visibility="Hidden" Foreground="White" TickFrequency="5" TickPlacement="BottomRight" Orientation="Vertical" Minimum="1" Maximum="50" HorizontalAlignment="Right"  Height="67" Margin="0,-30,-30,0" />
+            <ComboBox Style="{StaticResource MaterialDesignFilledComboBox}" x:Name="FilledCombo"
+                          IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledComboBoxEnabledComboBox}"
+                          materialDesign:HintAssist.Hint="MODE"
+                         Width="80" Height="60" Margin="0,-19,-129,9" HorizontalAlignment="Right"
+                          Foreground="White" 
+                          FontWeight="Bold" 
+                          FontSize="13">
+                <ComboBoxItem Content="FSRCNN"  Foreground="#FF404042"/>
+                <ComboBoxItem Content="GMFN"  Foreground="#FF404042"/>
+            </ComboBox>
+        </Grid>
+    </Grid>
+</Window>
